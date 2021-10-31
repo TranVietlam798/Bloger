@@ -5,6 +5,7 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 import morgan from "morgan"
+import routes from './routes'
 
 //middleware
 const app = express();
@@ -17,11 +18,8 @@ app.use(cookieParser())
 
 //routes
 
-app.get('/', (req, res) => {
-    res.json({
-        msg: 'Hello'
-    })
-})
+app.use('/api', routes.authRouter)
+
 
 //datebase
 
